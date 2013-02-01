@@ -633,7 +633,7 @@ abstract class Jelly_Core_Model {
 				$value = $field->save($this, $value, $key);
 
 				// Only set the value to be saved if it's changed from the original
-				if ($value !== $this->_original[$column])
+				if ($field->set($value) !== $this->_original[$column])
 				{
 					$values[$field->name] = $value;
 				}
