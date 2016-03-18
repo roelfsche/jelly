@@ -1130,6 +1130,7 @@ abstract class Jelly_Core_Builder extends Database_Query_Builder_Select {
 				$query->_order_by   = $this->_order_by;
 				$query->_as_object  = $this->_as_object;
 				$query->_lifetime   = $this->_lifetime;
+				$query->_union 		= $this->_union;
 				$query->_limit      = $this->_limit;
 				break;
 
