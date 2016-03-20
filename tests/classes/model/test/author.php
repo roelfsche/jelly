@@ -24,7 +24,7 @@ class Model_Test_Author extends Jelly_Model {
 			'test_post'  => Jelly::field('hasone'),
 
 			// Relationship with non-standard naming
-			'permission' => Jelly::field('belongsto', array(
+			'permission' => Jelly::field('BelongsTo', array(
 				'foreign' => 'test_role',
 				'column'  => 'test_role_id',
 			)),

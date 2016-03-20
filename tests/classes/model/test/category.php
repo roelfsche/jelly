@@ -17,7 +17,7 @@ class Model_Test_Category extends Jelly_Model {
 			'id'         => Jelly::field('primary'),
 			'name'       => Jelly::field('string'),
 			'test_posts' => Jelly::field('manytomany'),
-			'parent'     => Jelly::field('belongsto', array(
+			'parent'     => Jelly::field('BelongsTo', array(
 				'foreign' => 'test_category',
 				'column'  => 'parent_id'
 			)),
