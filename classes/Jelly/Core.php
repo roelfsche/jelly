@@ -118,7 +118,7 @@ abstract class Jelly_Core {
 	 */
 	public static function field($type, $options = NULL)
 	{
-		$field = Jelly::$_field_prefix.$type;
+		$field = Jelly::$_field_prefix.ucfirst($type);
 
 		return new $field($options);
 	}
