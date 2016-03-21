@@ -686,7 +686,11 @@ abstract class Jelly_Core_Model {
 				// Or if we're INSERTing and we need to set the defaults for the first time
 				elseif ( ! $key AND ! $this->changed($field->name) AND ! $field->primary)
 				{
-					$values[$field->name] = $field->default;
+					if ($field instanceof Jelly_Field_Serialized) {
+						$values[$field->name] = $value; // need the value serialized as done by save()
+					} else {
+						$values[$field->name] = $field->default;
+					}
 				}
 			}
 			// Field can save itself,
