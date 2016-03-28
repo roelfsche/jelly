@@ -402,7 +402,7 @@ abstract class Jelly_Core_Model {
 			}
 
 			// Ensure data is really changed
-			if ($value === $current_value)
+			if ($value === $current_value || (is_array($value) && is_array($current_value) && $value == $current_value))
 			{
 				continue;
 			}
@@ -686,7 +686,7 @@ abstract class Jelly_Core_Model {
 				// Or if we're INSERTing and we need to set the defaults for the first time
 				elseif ( ! $key AND ! $this->changed($field->name) AND ! $field->primary)
 				{
-					if ($field instanceof Jelly_Field_Serialized) {
+					if ($field instanceof Jelly_Field_Serialized || $field instanceof Jelly_Field_Jsonized) {
 						$values[$field->name] = $value; // need the value serialized as done by save()
 					} else {
 						$values[$field->name] = $field->default;
