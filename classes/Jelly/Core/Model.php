@@ -402,7 +402,7 @@ abstract class Jelly_Core_Model {
 			}
 
 			// Ensure data is really changed
-			if ($value === $current_value || (is_array($value) && is_array($current_value) && $value == $current_value))
+			if ($value === $current_value || (is_array($value) && is_array($current_value) && md5(serialize($value)) == md5(serialize($current_value))))
 			{
 				continue;
 			}
